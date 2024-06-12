@@ -4,10 +4,7 @@ import com.oiab.beans.services.BluePrinter;
 import com.oiab.beans.services.ColourPrinter;
 import com.oiab.beans.services.GreenPrinter;
 import com.oiab.beans.services.RedPrinter;
-import com.oiab.beans.services.implementation.ColourPrinterImpl;
-import com.oiab.beans.services.implementation.EnglishBluePrinterImpl;
-import com.oiab.beans.services.implementation.EnglishGreenPrinterImpl;
-import com.oiab.beans.services.implementation.EnglishRedPrinterImpl;
+import com.oiab.beans.services.implementation.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -17,9 +14,7 @@ public class PrinterConfiguration {
 	 * Estos métodos crea un bean de  cada tipo Printer que tenga una implementación en inglésq
 	 */
 	@Bean
-	public BluePrinter bluePrinter() {
-		return new EnglishBluePrinterImpl();
-	}
+	public BluePrinter bluePrinter() { return new SpanishBluePrinterImpl(); }
 
 	@Bean
 	public GreenPrinter greenPrinter() {
@@ -27,9 +22,7 @@ public class PrinterConfiguration {
 	}
 
 	@Bean
-	public RedPrinter redPrinter() {
-		return new EnglishRedPrinterImpl();
-	}
+	public RedPrinter redPrinter() { return new SpanishRedPrinterImpl(); }
 
 	@Bean
 	public ColourPrinter colourPrinter(BluePrinter bluePrinter, GreenPrinter greenPrinter, RedPrinter redPrinter) {
