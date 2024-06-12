@@ -1,10 +1,10 @@
-package com.oiab.quickstart;
+package com.oiab.database;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class QuickstartApplicationTests {
+class DatabaseApplicationTests {
 
 	@Test
 	void contextLoads() {
