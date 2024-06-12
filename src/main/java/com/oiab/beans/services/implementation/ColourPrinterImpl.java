@@ -4,7 +4,9 @@ import com.oiab.beans.services.BluePrinter;
 import com.oiab.beans.services.ColourPrinter;
 import com.oiab.beans.services.GreenPrinter;
 import com.oiab.beans.services.RedPrinter;
+import org.springframework.stereotype.Component;
 
+@Component // Esta anotación permite que Spring puedad detectar nuestros beans y los pueda inyectar
 public class ColourPrinterImpl implements ColourPrinter {
 	private RedPrinter redPrinter;
 	private GreenPrinter greenPrinter;
