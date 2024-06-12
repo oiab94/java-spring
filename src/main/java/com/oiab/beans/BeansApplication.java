@@ -10,6 +10,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 @Log
 public class BeansApplication implements CommandLineRunner {
+	private final ColourPrinter colourPrinter;
+
+	public BeansApplication(ColourPrinter colourPrinter) {
+		this.colourPrinter = colourPrinter;
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(BeansApplication.class, args);
@@ -19,7 +24,6 @@ public class BeansApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		log.info("BeansApplication...run");
 
-		final ColourPrinter colourPrinter = new ColourPrinterImpl();
 		log.info("Colour: " + colourPrinter.print());
 
 		log.info("BeansApplication...done");

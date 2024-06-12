@@ -12,13 +12,13 @@ public class ColourPrinterImpl implements ColourPrinter {
 
 	/**
 	 * Constructor
-	 * El problema que se oresenta aqui es que si queremos cambiar el idioma de la impresion
-	 * tendriamos que cambiar el codigo de esta clase, lo cual no es una buena practica.
+	 * Lo que hacemos ahora es inyectar las dependencias de los objetos que implementan las interfaces
+	 * RedPrinter, GreenPrinter y BluePrinter
 	 */
-	public ColourPrinterImpl() {
-		this.bluePrinter  = new EnglishBluePrinterImpl();
-		this.greenPrinter = new EnglishGreenPrinterImpl();
-		this.redPrinter  = new EnglishRedPrinterImpl();
+	public ColourPrinterImpl(BluePrinter bluePrinter, GreenPrinter greenPrinter, RedPrinter redPrinter) {
+		this.bluePrinter  = bluePrinter;
+		this.greenPrinter = greenPrinter;
+		this.redPrinter  = redPrinter;
 	}
 
 	@Override
