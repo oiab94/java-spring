@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.oiab</groupId>
-	<artifactId>quickstart</artifactId>
+	<artifactId>database</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>quickstart</name>
+	<name>database</name>
 	<description>First project java spring</description>
 	<properties>
 		<java.version>17</java.version>
