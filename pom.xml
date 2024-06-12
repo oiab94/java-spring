@@ -19,7 +19,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
 		</dependency>
 
 		<dependency>
@@ -45,6 +45,7 @@
 			<artifactId>postgresql</artifactId>
 			<version>LATEST</version>
 		</dependency>
+
 	</dependencies>
 
 	<build>
