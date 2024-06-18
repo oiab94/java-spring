@@ -1,4 +1,4 @@
-package com.oiab.database.dao;
+package com.oiab.database.dao.implementation;
 
 import com.oiab.database.dao.implementation.BookDaoImpl;
 import com.oiab.database.domain.Book;

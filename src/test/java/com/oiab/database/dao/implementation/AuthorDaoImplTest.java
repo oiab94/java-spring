@@ -1,9 +1,10 @@
-package com.oiab.database.dao;
+package com.oiab.database.dao.implementation;
 
 import com.oiab.database.dao.implementation.AuthorDaoImpl;
 import com.oiab.database.domain.Author;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -39,4 +40,16 @@ public class AuthorDaoImplTest {
 		);
 	}
 
+	@Test
+	public void testThatFindOneAuthor() {
+
+		// Implementar la prueba para verificar que se esta llamando al metodo correcto
+		underTest.findOneAuthor(1L);
+
+		verify(jdbcTemplate).query(
+			eq("SELECT * FROM authors WHERE id = ? LIMIT 1"),
+			ArgumentMatchers.<AuthorDaoImpl.AuthorRowMapper>any(),
+			eq(1L) );
+
+	}
 }
