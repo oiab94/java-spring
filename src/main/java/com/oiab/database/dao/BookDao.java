@@ -1,4 +1,4 @@
 package com.oiab.database.dao;
 
-public interface Author {
+public interface BookDao {
 }
