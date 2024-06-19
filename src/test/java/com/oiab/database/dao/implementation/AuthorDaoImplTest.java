@@ -23,7 +23,7 @@ public class AuthorDaoImplTest {
 
 	@Test
 	public void testCreateAuthor() {
-		Author author = TestDataUtil.createTestAuthor();
+		Author author = TestDataUtil.createTestAuthorA();
 
 		// Esta implementacion es necesaria para crear un autor
 		underTest.createAuthor(author);
@@ -47,5 +47,15 @@ public class AuthorDaoImplTest {
 			ArgumentMatchers.<AuthorDaoImpl.AuthorRowMapper>any(),
 			eq(1L) );
 
+	}
+
+	@Test
+	public void testThatFindManyAuthors() {
+		underTest.findAuthors();
+
+		verify(jdbcTemplate).query(
+			eq("SELECT * FROM authors ORDER BY 1 DESC;"),
+			ArgumentMatchers.<AuthorDaoImpl.AuthorRowMapper>any()
+		);
 	}
 }

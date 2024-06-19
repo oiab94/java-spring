@@ -40,6 +40,16 @@ public class AuthorDaoImpl implements AuthorDao {
 		return result.stream().findFirst();
 	}
 
+	@Override
+	public List<Author> findAuthors() {
+		List<Author> result = jdbcTemplate.query(
+			"SELECT * FROM authors ORDER BY 1 DESC;",
+			new AuthorRowMapper()
+		);
+
+		return result;
+	}
+
 
 	// Rowmapper permite mapear los resultados de una consulta a un objeto
 	public static class AuthorRowMapper implements RowMapper<Author> {

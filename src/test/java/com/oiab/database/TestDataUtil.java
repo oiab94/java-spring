@@ -6,13 +6,30 @@ import com.oiab.database.domain.Book;
 public final class TestDataUtil {
 	private TestDataUtil() {}
 
-	public static Author createTestAuthor() {
+	public static Author createTestAuthorA() {
 		return Author.builder()
 			.id(1L)
 			.name("John Doe")
 			.age(30)
 			.build();
 	}
+
+	public static Author createTestAuthorB() {
+		return Author.builder()
+			.id(2L)
+			.name("Jane Doe")
+			.age(25)
+			.build();
+	}
+
+	public static Author createTestAuthorC() {
+		return Author.builder()
+			.id(3L)
+			.name("John Smith")
+			.age(40)
+			.build();
+	}
+
 
 	public static Book createTestBook() {
 		return Book

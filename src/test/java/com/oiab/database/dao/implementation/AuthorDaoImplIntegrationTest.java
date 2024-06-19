@@ -6,14 +6,17 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.util.List;
 import java.util.Optional;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD) // Limpia cada cambio que se haya realizado en cada test
 public class AuthorDaoImplIntegrationTest {
 	private AuthorDaoImpl underTest;
 
@@ -27,7 +30,7 @@ public class AuthorDaoImplIntegrationTest {
 	 */
 	@Test
 	public void testThatAuthorCanBeCreatedAndRecalledById() {
-		Author author = TestDataUtil.createTestAuthor();
+		Author author = TestDataUtil.createTestAuthorA();
 		underTest.createAuthor(author);
 
 		// Failed Test
@@ -36,5 +39,26 @@ public class AuthorDaoImplIntegrationTest {
 
 		assertThat(result).isPresent();
 		assertThat(result.get()).isEqualTo(author);
+	}
+
+	@Test
+	public void testThatCanBeCreatedAndFindManyAuthors() {
+		// Creamos los autores
+		Author authorA = TestDataUtil.createTestAuthorA();
+		Author authorB = TestDataUtil.createTestAuthorB();
+		Author authorC = TestDataUtil.createTestAuthorC();
+
+		underTest.createAuthor(authorA);
+		underTest.createAuthor(authorB);
+		underTest.createAuthor(authorC);
+
+		// Buscamos los autores
+		List<Author> result = underTest.findAuthors();
+
+		// Test
+		assertThat(result)
+			.hasSize(3)
+			.containsExactly(authorC, authorB, authorA);
+
 	}
 }
