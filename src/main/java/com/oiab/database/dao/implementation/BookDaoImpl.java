@@ -4,12 +4,14 @@ import com.oiab.database.dao.BookDao;
 import com.oiab.database.domain.Book;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
+@Component
 public class BookDaoImpl implements BookDao {
 	private final JdbcTemplate jdbcTemplate;
 
@@ -46,7 +48,7 @@ public class BookDaoImpl implements BookDao {
 				.id(rs.getLong("id"))
 				.isbn(rs.getString("isbn"))
 				.title(rs.getString("title"))
-				.authorId(rs.getInt("author_id"))
+				.authorId(rs.getLong("author_id"))
 				.build();
 		}
 	}

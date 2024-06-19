@@ -1,5 +1,6 @@
 package com.oiab.database.dao.implementation;
 
+import com.oiab.database.TestDataUtil;
 import com.oiab.database.domain.Book;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -22,13 +23,7 @@ public class BookDaoImplTest {
 
 	@Test
 	public void testCreateBook(){
-		Book book = Book
-			.builder()
-			.id(1L)
-			.isbn("1234567890")
-			.title("Book Title")
-			.authorId(1)
-			.build();
+		Book book = TestDataUtil.createTestBook();
 
 
 		// Esta implementacion es necesaria para crear un libro
