@@ -1,6 +1,6 @@
 package com.oiab.database.dao.implementation;
 
-import com.oiab.database.dao.implementation.AuthorDaoImpl;
+import com.oiab.database.TestDataUtil;
 import com.oiab.database.domain.Author;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -23,11 +23,7 @@ public class AuthorDaoImplTest {
 
 	@Test
 	public void testCreateAuthor() {
-		Author author = Author.builder()
-			.id(1L)
-			.name("John Doe")
-			.age(30)
-			.build();
+		Author author = TestDataUtil.createTestAuthor();
 
 		// Esta implementacion es necesaria para crear un autor
 		underTest.createAuthor(author);
