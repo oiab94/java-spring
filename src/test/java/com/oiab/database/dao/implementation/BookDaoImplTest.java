@@ -1,7 +1,6 @@
 package com.oiab.database.dao.implementation;
 
 import com.oiab.database.TestDataUtil;
-import com.oiab.database.domain.Author;
 import com.oiab.database.domain.Book;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -66,6 +65,16 @@ public class BookDaoImplTest {
 		verify(jdbcTemplate).update(
 			eq("UPDATE books SET id = ?, isbn = ?, title = ?, author_id = ? WHERE id = ?;"),
 			eq(1L), eq("1234567890"), eq("Book Title"), eq(1L), eq(1L)
+		);
+	}
+
+	@Test
+	public void testThatDeleteABook() {
+		underTest.deleteBook(1L);
+
+		verify(jdbcTemplate).update(
+			eq("DELETE FROM books WHERE id = ?"),
+			eq(1L)
 		);
 	}
 }

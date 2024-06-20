@@ -61,6 +61,14 @@ public class BookDaoImpl implements BookDao {
 		);
 	}
 
+	@Override
+	public void deleteBook(long bookId) {
+		jdbcTemplate.update(
+			"DELETE FROM books WHERE id = ?",
+			bookId
+		);
+	}
+
 	public static class BookRowMapper implements RowMapper<Book> {
 
 		@Override

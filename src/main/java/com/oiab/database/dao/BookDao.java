@@ -13,4 +13,6 @@ public interface BookDao {
 	List<Book> findBooks();
 
 	void updateBook(long bookId, Book book);
+
+	void deleteBook(long bookId);
 }
