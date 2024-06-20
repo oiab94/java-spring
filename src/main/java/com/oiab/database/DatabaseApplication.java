@@ -1,13 +1,13 @@
-package com.oiab.quickstart;
+package com.oiab.database;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class QuickstartApplication {
+public class DatabaseApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(QuickstartApplication.class, args);
+		SpringApplication.run(DatabaseApplication.class, args);
 	}
 
 }
