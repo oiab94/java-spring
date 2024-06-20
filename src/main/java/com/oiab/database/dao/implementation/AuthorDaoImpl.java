@@ -58,6 +58,14 @@ public class AuthorDaoImpl implements AuthorDao {
 		);
 	}
 
+	@Override
+	public void deleteAuthor(long authorId) {
+		jdbcTemplate.update(
+			"DELETE FROM authors WHERE id = ?",
+			authorId
+		);
+	}
+
 
 	// Rowmapper permite mapear los resultados de una consulta a un objeto
 	public static class AuthorRowMapper implements RowMapper<Author> {
