@@ -23,7 +23,7 @@ public class BookDaoImplTest {
 
 	@Test
 	public void testCreateBook(){
-		Book book = TestDataUtil.createTestBook();
+		Book book = TestDataUtil.createTestBookA();
 
 
 		// Esta implementacion es necesaria para crear un libro
@@ -31,7 +31,7 @@ public class BookDaoImplTest {
 
 		verify(jdbcTemplate).update(
 			eq("INSERT INTO books (id, isbn, title, author_id) VALUES (?, ?, ?, ?)"),
-			eq(1L), eq("1234567890"), eq("Book Title"), eq(1)
+			eq(1L), eq("1234567890"), eq("Book Title"), eq(1L)
 		);
 	}
 
@@ -44,5 +44,15 @@ public class BookDaoImplTest {
 			eq("SELECT * FROM books WHERE isbn = ? LIMIT 1"),
 			ArgumentMatchers.<BookDaoImpl.BookRowMapper>any(),
 			eq("1234567890"));
+	}
+
+	@Test
+	public void testThatFindManyBooks() {
+		underTest.findBooks();
+
+		verify(jdbcTemplate).query(
+			eq("SELECT * FROM books ORDER BY 1 DESC;"),
+			ArgumentMatchers.<BookDaoImpl.BookRowMapper>any()
+		);
 	}
 }

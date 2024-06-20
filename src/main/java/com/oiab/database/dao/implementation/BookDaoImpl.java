@@ -39,6 +39,16 @@ public class BookDaoImpl implements BookDao {
 		return result.stream().findFirst();
 	}
 
+	@Override
+	public List<Book> findBooks() {
+		List<Book> result = jdbcTemplate.query(
+	"SELECT * FROM books ORDER BY 1 DESC;",
+			new BookRowMapper()
+		);
+
+		return result;
+	}
+
 	public static class BookRowMapper implements RowMapper<Book> {
 
 		@Override
