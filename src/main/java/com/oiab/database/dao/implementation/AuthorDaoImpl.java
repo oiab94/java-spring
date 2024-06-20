@@ -50,6 +50,14 @@ public class AuthorDaoImpl implements AuthorDao {
 		return result;
 	}
 
+	@Override
+	public void updateAuthor(long id, Author author) {
+		jdbcTemplate.update(
+			"UPDATE authors SET id = ?, name = ?, age = ? WHERE id = ?",
+			author.getId(), author.getName(), author.getAge(), author.getId()
+		);
+	}
+
 
 	// Rowmapper permite mapear los resultados de una consulta a un objeto
 	public static class AuthorRowMapper implements RowMapper<Author> {

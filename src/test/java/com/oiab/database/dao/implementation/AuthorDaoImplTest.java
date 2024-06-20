@@ -58,4 +58,16 @@ public class AuthorDaoImplTest {
 			ArgumentMatchers.<AuthorDaoImpl.AuthorRowMapper>any()
 		);
 	}
+
+	@Test
+	public void testThatUpdateAuthor() {
+		Author author = TestDataUtil.createTestAuthorA();
+
+		underTest.updateAuthor(1L, author);
+
+		verify(jdbcTemplate).update(
+			eq("UPDATE authors SET id = ?, name = ?, age = ? WHERE id = ?"),
+			eq(1L), eq("John Doe"), eq(30), eq(1L)
+		);
+	}
 }
