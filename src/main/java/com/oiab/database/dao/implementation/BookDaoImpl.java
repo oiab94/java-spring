@@ -49,6 +49,18 @@ public class BookDaoImpl implements BookDao {
 		return result;
 	}
 
+	@Override
+	public void updateBook(long bookId, Book book) {
+		jdbcTemplate.update(
+			"UPDATE books SET id = ?, isbn = ?, title = ?, author_id = ? WHERE id = ?;",
+			book.getId(),
+			book.getIsbn(),
+			book.getTitle(),
+			book.getAuthorId(),
+			bookId
+		);
+	}
+
 	public static class BookRowMapper implements RowMapper<Book> {
 
 		@Override
