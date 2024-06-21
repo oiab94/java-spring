@@ -40,33 +40,29 @@ public class BookRepositoryIntegrationTest {
 		assertThat(result).isPresent();
 		assertThat(result.get()).isEqualTo(book);
 	}
-//
-//	@Test
-//	public void testThatCanBeCreatedAndFindManyBooks() {
-//		// Creamos nuestro autor
-//		Author author = TestDataUtil.createTestAuthorA();
-//		authorDao.createAuthor(author);
-//
-//		// Creamos nuestros libros
-//		Book bookA = TestDataUtil.createTestBookA();
-//		bookA.setAuthorId(author.getId());
-//		underTest.createBook(bookA);
-//
-//		Book bookB = TestDataUtil.createTestBookB();
-//		bookB.setAuthorId(author.getId());
-//		underTest.createBook(bookB);
-//
-//		Book bookC = TestDataUtil.createTestBookC();
-//		bookC.setAuthorId(author.getId());
-//		underTest.createBook(bookC);
-//
-//		// Test
-//		List<Book> result = underTest.findBooks();
-//		assertThat(result)
-//			.hasSize(3)
-//			.containsExactly(bookC, bookB, bookA);
-//	}
-//
+
+	@Test
+	public void testThatCanBeCreatedAndFindManyBooks() {
+		// Creamos nuestro autor
+		Author author = TestDataUtil.createTestAuthorA();
+
+		// Creamos nuestros libros
+		Book bookA = TestDataUtil.createTestBookA(author);
+		underTest.save(bookA);
+
+		Book bookB = TestDataUtil.createTestBookB(author);
+		underTest.save(bookB);
+
+		Book bookC = TestDataUtil.createTestBookC(author);
+		underTest.save(bookC);
+
+		// Test
+		Iterable<Book> result = underTest.findAll();
+		assertThat(result)
+			.hasSize(3)
+			.containsExactly(bookA, bookB, bookC);
+	}
+
 //	@Test
 //	public void testThatCanBeCreatedAndUpdatedABook() {
 //		// Creamos nuestro autor
