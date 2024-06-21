@@ -21,7 +21,7 @@ public class Book {
 
 	private String title;
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL) // Cascade indica que todas las operaciones que se hagan con author se harán con book
 	@JoinColumn(name = "author_id")
 	private Author author;
 }
