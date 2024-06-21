@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,10 +16,10 @@ import lombok.NoArgsConstructor;
 @Table(name = "authors")
 public class Author {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "author_seq")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-
 	private String name;
+
 	private Integer age;
 }
