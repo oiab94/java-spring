@@ -62,24 +62,23 @@ public class AuthorRepositoryIntegrationTest {
 			.containsExactly(authorA, authorB, authorC);
 
 	}
-//
-//	@Test
-//	public void testThatCanBeCreatedAndUpdatedAuthor() {
-//		// Creamos un autor
-//		Author author = TestDataUtil.createTestAuthorA();
-//		underTest.createAuthor(author);
-//
-//		// Creamos un nuevo autor que reemplazara el anterior
-//		Author updatedAuthor = TestDataUtil.createTestAuthorB();
-//		updatedAuthor.setId(author.getId());
-//
-//		// Test
-//		underTest.updateAuthor(updatedAuthor.getId(), updatedAuthor);
-//		Optional<Author> result = underTest.findOneAuthor(updatedAuthor.getId());
-//
-//		assertThat(result).isPresent();
-//		assertThat(result.get()).isEqualTo(updatedAuthor);
-//	}
+
+	@Test
+	public void testThatCanBeCreatedAndUpdatedAuthor() {
+		// Creamos un autor
+		Author author = TestDataUtil.createTestAuthorA();
+		underTest.save(author);
+
+		// Creamos un nuevo autor que reemplazara el anterior
+		author.setName("Updated Name");
+		underTest.save(author);
+
+		// Test
+		Optional<Author> result = underTest.findById(author.getId());
+
+		assertThat(result).isPresent();
+		assertThat(result.get()).isEqualTo(author);
+	}
 //
 //	@Test
 //	public void testThatCanBeCreatedAndDeletedAuthor() {
