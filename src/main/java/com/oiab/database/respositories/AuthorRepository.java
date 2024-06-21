@@ -1,4 +1,10 @@
 package com.oiab.database.respositories;
 
-public interface AuthorRepository {
+import com.oiab.database.domain.Author;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface AuthorRepository extends CrudRepository<Author, Long> {
+
 }
