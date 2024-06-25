@@ -34,7 +34,7 @@ public class BookRepositoryIntegrationTest {
 		Book book = TestDataUtil.createTestBookA(author);
 
 		underTest.save(book);
-		Optional<Book> result = underTest.findById(book.getId());
+		Optional<Book> result = underTest.findById(book.getIsbn());
 
 		// Test
 		assertThat(result).isPresent();
@@ -77,7 +77,7 @@ public class BookRepositoryIntegrationTest {
 
 		underTest.save(book);
 
-		Optional<Book> result = underTest.findById(book.getId());
+		Optional<Book> result = underTest.findById(book.getIsbn());
 
 		assertThat(result).isPresent();
 		assertThat(result.get()).isEqualTo(book);
@@ -94,8 +94,8 @@ public class BookRepositoryIntegrationTest {
 		underTest.save(book);
 
 		// Test
-		underTest.deleteById(book.getId());
-		Optional<Book> result = underTest.findById(book.getId());
+		underTest.deleteById(book.getIsbn());
+		Optional<Book> result = underTest.findById(book.getIsbn());
 
 		assertThat(result).isEmpty();
 	}

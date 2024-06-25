@@ -34,7 +34,6 @@ public final class TestDataUtil {
 	public static Book createTestBookA(final Author author) {
 		return Book
 			.builder()
-			.id(1L)
 			.isbn("1234567890")
 			.title("Book Title")
 			.author(author)
@@ -44,7 +43,6 @@ public final class TestDataUtil {
 	public static Book createTestBookB(final Author author) {
 		return Book
 			.builder()
-			.id(2L)
 			.isbn("asdfghjkl")
 			.title("Book Title 2")
 			.author(author)
@@ -54,7 +52,6 @@ public final class TestDataUtil {
 	public static Book createTestBookC(final Author author) {
 		return Book
 			.builder()
-			.id(3L)
 			.isbn("qwertyuiop")
 			.title("Book Title 3")
 			.author(author)
