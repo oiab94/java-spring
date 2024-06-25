@@ -1,10 +1,10 @@
-package com.oiab.quickstart;
+package com.oiab.firstapi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class QuickstartApplicationTests {
+class FirstApiApplicationTests {
 
 	@Test
 	void contextLoads() {
