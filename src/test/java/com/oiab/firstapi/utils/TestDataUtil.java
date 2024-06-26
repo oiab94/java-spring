@@ -10,22 +10,22 @@ public class TestDataUtil {
 			.age(30)
 			.build();
 	}
-//
-//	public static Author createTestAuthorB() {
-//		return Author.builder()
-//			.id(2L)
-//			.name("Jane Doe")
-//			.age(25)
-//			.build();
-//	}
-//
-//	public static Author createTestAuthorC() {
-//		return Author.builder()
-//			.id(3L)
-//			.name("John Smith")
-//			.age(40)
-//			.build();
-//	}
+
+	public static Author createTestAuthorB() {
+		return Author.builder()
+			.id(2L)
+			.name("Jane Doe")
+			.age(25)
+			.build();
+	}
+
+	public static Author createTestAuthorC() {
+		return Author.builder()
+			.id(3L)
+			.name("John Smith")
+			.age(40)
+			.build();
+	}
 //
 //
 //	public static Book createTestBookA(final Author author) {
