@@ -1,6 +1,7 @@
 package com.oiab.firstapi.utils;
 
 import com.oiab.firstapi.dao.Author;
+import com.oiab.firstapi.dao.Book;
 
 public class TestDataUtil {
 	public static Author createTestAuthorA() {
@@ -26,32 +27,32 @@ public class TestDataUtil {
 			.age(40)
 			.build();
 	}
-//
-//
-//	public static Book createTestBookA(final Author author) {
-//		return Book
-//			.builder()
-//			.isbn("1234567890")
-//			.title("Book Title")
-//			.author(author)
-//			.build();
-//	}
-//
-//	public static Book createTestBookB(final Author author) {
-//		return Book
-//			.builder()
-//			.isbn("asdfghjkl")
-//			.title("Book Title 2")
-//			.author(author)
-//			.build();
-//	}
-//
-//	public static Book createTestBookC(final Author author) {
-//		return Book
-//			.builder()
-//			.isbn("qwertyuiop")
-//			.title("Book Title 3")
-//			.author(author)
-//			.build();
-//	}
+
+
+	public static Book createTestBookA(final Author author) {
+		return Book
+			.builder()
+			.isbn("1234567890")
+			.title("Book Title")
+			.author(author)
+			.build();
+	}
+
+	public static Book createTestBookB(final Author author) {
+		return Book
+			.builder()
+			.isbn("asdfghjkl")
+			.title("Book Title 2")
+			.author(author)
+			.build();
+	}
+
+	public static Book createTestBookC(final Author author) {
+		return Book
+			.builder()
+			.isbn("qwertyuiop")
+			.title("Book Title 3")
+			.author(author)
+			.build();
+	}
 }
